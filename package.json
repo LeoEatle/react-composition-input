@@ -1,0 +1,29 @@
+{
+  "name": "react-composition-input",
+  "version": "1.0.0",
+  "description": "An input component optimized for languages which need composition such as Chinese, Japanese etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoEatle/react-composition-input.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "composition",
+    "input",
+    "form",
+    "chinese",
+    "japanese"
+  ],
+  "author": "LeoEatle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoEatle/react-composition-input/issues"
+  },
+  "homepage": "https://github.com/LeoEatle/react-composition-input#readme"
+}
