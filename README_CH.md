@@ -27,3 +27,6 @@
 Chrome v53之后，`compositionend`事件被改成了在`textInput`事件之后再触发，这造成`compositionend`事件触发了，但是`onInputChange`没有被调用，所以我们针对Chrome需要再一次调用`onInputChange`，在其他的大部分浏览器，`textInput`都是在`compositionend`之后触发的。
 
 你可以查阅[chromium的源码](https://chromium.googlesource.com/chromium/src/+/afce9d93e76f2ff81baaa088a4ea25f67d1a76b3%5E!/)了解更多细节。
+
+### 为什么用[Parcel](https://parceljs.org/)来打包？
+因为用[Parcel](https://parceljs.org/)来开发组件的demo页真是太爽了，但这并不影响你用什么打包器去开发你的项目，因为库代码都是由[Babel](https://babeljs.io/)生成的。

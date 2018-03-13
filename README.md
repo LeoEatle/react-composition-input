@@ -29,3 +29,6 @@ You can read [this article by Evan You](http://blog.evanyou.me/2014/01/03/compos
 After Chrome v53, the `compositionend` event is emitted after `textInput` event. It causes that `compositionend` event emitted but `onInputChange` function is not be called. So we need to call `onInputChange` for another time.
 
 You can see the [source code of chromium](https://chromium.googlesource.com/chromium/src/+/afce9d93e76f2ff81baaa088a4ea25f67d1a76b3%5E!/) for more details.
+
+### Why to use [Parcel](https://parceljs.org/) as the bundler?
+I use [Parcel](https://parceljs.org/) to develop because parcel is really simple and convenient to build a demo page for component. Don't worry if you use webpack or other bundlers because the production code is produced through [Babel](https://babeljs.io/).
