@@ -4,7 +4,7 @@
   "description": "An input component optimized for languages which need composition such as Chinese, Japanese etc.",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./demo/index.html -d ./demo/dist",
+    "start": "parcel ./demo/index.html -d ./demo/dist &&start localhost:1234",
     "build": "babel src --out-dir lib",
     "dev": "webpack --watch",
     "test": "npm run test"

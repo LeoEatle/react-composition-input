@@ -6,6 +6,10 @@ const testList = [
     'ceshi123',
     'ceshi223',
     'ceshi334',
+    "ce'shi",
+    "ce'shi123",
+    'ceshi223',
+    'ceshi334',
     '测试',
     '测试123',
     '测试ceshi',
@@ -45,15 +49,24 @@ class App extends Component {
 
     render() {
         return (
-            <div id='root'>
-                <div className='original-part'>
-                    <input type='text' onChange={this.inputChange('original')} />
-                    {this.renderResult('original')}
+            <div className='content'>
+                <header>
+                    <h1>The difference of searching with react-composition-input</h1>
+                    <p>Try to type '测试' in these two input fields.</p>
+                </header>
+                <div id='container'>
+                    <div className='part original-part'>
+                        <h1>Original search input</h1>
+                        <input type='text' onChange={this.inputChange('original')} />
+                        {this.renderResult('original')}
+                    </div>
+                    <div className='part optimized-part'>
+                        <h1>Optimized search input</h1>
+                        <CInput onInputChange={this.inputChange('optimized')} />
+                        {this.renderResult('optimized')}
+                    </div>
                 </div>
-                <div className='optimized-part'>
-                    <CInput onInputChange={this.inputChange('optimized')} />
-                    {this.renderResult('optimized')}
-                </div>
+            
             </div>
         )
     }
