@@ -1,6 +1,8 @@
 # react-composition-input
 针对中文、日语等需要输入法组词的语言进行优化的输入框。
 
+[Demo](https://leoeatle.github.io/react-composition-input/)
+
 # 用法
 
 `npm install --save react-composition-input`

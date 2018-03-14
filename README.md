@@ -1,6 +1,8 @@
 # react-composition-input
 The input component optimized for languages like Chinese, Japanese etc. 
 
+[Demo](https://leoeatle.github.io/react-composition-input/)
+
 [中文文档](https://github.com/LeoEatle/react-composition-input/blob/master/README_CH.md)
 
 # Usage
