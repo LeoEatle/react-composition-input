@@ -3,7 +3,7 @@ language: node_js
 node_js: stable 
 
 install:
-  - npm install 
+  - npm install -D
 
 script:
   - npm run dist
