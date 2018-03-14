@@ -2,6 +2,7 @@
 针对中文、日语等需要输入法组词的语言进行优化的输入框。
 
 [Demo](https://leoeatle.github.io/react-composition-input/)
+[![](https://img.shields.io/travis/LeoEatle/react-composition-input.svg)](https://travis-ci.org/LeoEatle/react-composition-input)
 
 # 用法
 
