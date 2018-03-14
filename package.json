@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel ./demo/index.html -d ./demo/dist &&start localhost:1234",
     "build": "babel src --out-dir lib",
-    "dist": "parcel build ./demo/index.html -d ./",
+    "dist": "parcel build ./demo/index.html -d ./ --public-url ./",
     "test": "npm run test"
   },
   "repository": {
