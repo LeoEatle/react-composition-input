@@ -10,6 +10,13 @@
 <CInput onInputChange={this.handleInputChange} />
 ```
 
+# 例子 & 开发
+
+```bash
+npm install
+npm start
+```
+
 # Why
 当我们用中文打字的时候，我们会需要输入法帮我们组词。但是输入框并不会等我们组词完毕之后才触发`change`事件，这样会导致每次输入一个字母输入框的`change`就会触发一次。
 

@@ -11,6 +11,13 @@ The input component optimized for languages like Chinese, Japanese etc.
 // import CInput from 'react-composition-input'
 <CInput onInputChange={this.handleInputChange} />
 ```
+# Example & Development
+
+```bash
+npm install
+npm start
+```
+
 
 # Why
 When we type non-latin languages, e.g. Chinese, we need IME to compose our input untial a word selection has been made. However, when we are changing the input field's value during a composition, the `onChange` event emits before the composition is finished. Which is not what we expect. And frequently calling `onChange` function may affect page performance.
