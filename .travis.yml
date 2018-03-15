@@ -1,9 +1,9 @@
 language: node_js 
 
-node_js: stable 
-
+node_js: lts/* 
+cache: yarn
 install:
-  - npm install -D
+  - yarn
 
 script:
   - npm run dist
