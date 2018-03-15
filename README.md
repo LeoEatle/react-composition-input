@@ -32,7 +32,7 @@ npm start
 
 
 # Why
-When we type non-latin languages, e.g. Chinese, we need IME to compose our input untial a word selection has been made. However, when we are changing the input field's value during a composition, the `onChange` event emits before the composition is finished. Which is not what we expect. And frequently calling `onChange` function may affect page performance.
+When we type non-latin languages, e.g. Chinese, we need IME to compose our input until a word selection has been made. However, when we are changing the input field's value during a composition, the `onChange` event emits before the composition is finished. Which is not what we expect. And frequently calling `onChange` function may affect page performance.
 
 According to [DOM3 spec](https://w3c.github.io/uievents/#event-type-compositionstart), composition events can help us avoid emitting `onChange` event before the composition event is finished. We can use a variable to tag the status of composition. By using `react-composition-input`, the `onInputChange` callback will only be called after `compositionend` event is emitted. 
 
