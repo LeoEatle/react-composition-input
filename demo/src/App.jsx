@@ -34,11 +34,17 @@ class App extends Component {
     inputChange = (type) => {
         return (event) => {
             let value = event.target.value
-            this.setState({
-                [type]: testList.filter((item) => {
-                    return (item.indexOf(value) !== -1)
+            if (value) {
+                this.setState({
+                    [type]: testList.filter((item) => {
+                        return (item.indexOf(value) !== -1)
+                    })
                 })
-            })
+            } else {
+                this.setState({
+                    [type]: []
+                })
+            }
         }
     }
 
