@@ -13,8 +13,15 @@ The input component optimized for languages like Chinese, Japanese etc.
 `npm install --save react-composition-input`
 
 ```javascript
-// import CInput from 'react-composition-input'
-<CInput onInputChange={this.handleInputChange} />
+import { CInput } from 'react-composition-input';
+
+class App extends Component {
+  render() {
+    return (
+        <CInput onInputChange={this.handleInputChange} />
+    );
+  }
+}
 ```
 # Example & Development
 
