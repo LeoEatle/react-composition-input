@@ -1,8 +1,9 @@
 # react-composition-input
 The input component optimized for languages like Chinese, Japanese etc. 
 
+[![npm version](https://badge.fury.io/js/react-composition-input.svg)](https://badge.fury.io/js/react-composition-input)
+
 [Demo](https://leoeatle.github.io/react-composition-input/)
-[![](https://img.shields.io/travis/LeoEatle/react-composition-input.svg)](https://travis-ci.org/LeoEatle/react-composition-input)
 
 
 [中文文档](https://github.com/LeoEatle/react-composition-input/blob/master/README_CH.md)
