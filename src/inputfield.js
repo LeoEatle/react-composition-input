@@ -7,7 +7,7 @@ class InputField extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            tempInput: this.props.defaultValue,
+            tempInput: this.props.defaultValue || '',
         }
         this.isOnComposition = false
     }
@@ -42,10 +42,8 @@ class InputField extends Component {
     }
 
     render() {
-        const {value, ...restProps} = this.props
-        if (value) {
-            console.warn('The value props will be replaced by inner state of CInput')
-        }
+        const {onInputChange, ...restProps} = this.props
+
         return (
             <input
                 type='text'
