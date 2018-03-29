@@ -14,7 +14,6 @@ class InputField extends Component {
 
     handleInputChange = (event) => {
         let userInputValue = event.target.value
-        console.log('onchange', this.isOnComposition)
         if (!this.isOnComposition) {
             this.setState({
                 tempInput: userInputValue
@@ -43,6 +42,10 @@ class InputField extends Component {
     }
 
     render() {
+        const {value, ...restProps} = this.props
+        if (value) {
+            console.warn('The value props will be replaced by inner state of CInput')
+        }
         return (
             <input
                 type='text'
@@ -51,7 +54,7 @@ class InputField extends Component {
                 onChange={this.handleInputChange}
                 onCompositionStart={this.handleComposition}
                 onCompositionEnd={this.handleComposition}
-                {...this.props} />
+                {...restProps} />
         )
     }
 }
