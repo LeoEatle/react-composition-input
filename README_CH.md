@@ -41,6 +41,9 @@ npm start
 你还可以看下[尤雨溪的文章](http://blog.evanyou.me/2014/01/03/composition-event/)了解更多细节.
 
 # Q & A
+### 为什么我传`value`作为props不起作用？
+react-composition-input 用内部的state管理value，所以**请不要传`value`作为props到CInput**，如果这么做的话会显示一个警告。
+
 ### 为什么要检测是否是Chrome并在`compositionend`事件触发后再次调用`onInputChange`?
 Chrome v53之后，`compositionend`事件被改成了在`textInput`事件之后再触发，这造成`compositionend`事件触发了，但是`onInputChange`没有被调用，所以我们针对Chrome需要再一次调用`onInputChange`，在其他的大部分浏览器，`textInput`都是在`compositionend`之后触发的。
 

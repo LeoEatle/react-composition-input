@@ -44,6 +44,9 @@ You can see the difference through the gif below.
 You can read [this article by Evan You](http://blog.evanyou.me/2014/01/03/composition-event/) to know more about DOM composition event.
 
 # Q & A
+### Why `value` props not work in this input?
+I use inner state to manage the `value` of input. So **Please do not pass value as props to `react-composition-input`**. A warning will show if you do so.
+
 ### Why to detect Chrome and call `onInputChange` after `compositionend` event?
 After Chrome v53, the `compositionend` event is emitted after `textInput` event. It causes that `compositionend` event emitted but `onInputChange` function is not be called. So we need to call `onInputChange` for another time.
 
