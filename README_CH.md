@@ -40,6 +40,11 @@ npm start
 
 你还可以看下[尤雨溪的文章](http://blog.evanyou.me/2014/01/03/composition-event/)了解更多细节.
 
+#更新
+我发现不仅是有些浏览器触发`composition`和`input`事件的顺序不一样，用不同的输入法也能造成不同的结果。比如在iOS上如果你用原生的键盘去输入，`input`事件是在`composition`之前触发的，而如果你用Google键盘的话，你会发现`composition`事件从来都不会触发，`input`事件只会在组词结束后触发（虽然这样挺好但不符合规范）。 
+
+所以我用了另一种策略来对付这种不兼容问题，在`1.0.4`版本以上iOS的这种情况将被兼容。
+
 # Q & A
 ### 为什么我传`value`作为props不起作用？
 react-composition-input 用内部的state管理value，所以**请不要传`value`作为props到CInput**，如果这么做的话会显示一个警告。

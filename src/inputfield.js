@@ -10,9 +10,11 @@ class InputField extends Component {
             tempInput: this.props.defaultValue || '',
         }
         this.isOnComposition = false
+        this.emittedInput = true
     }
 
     handleInputChange = (event) => {
+        console.log('触发input事件' + new Date().getTime() + 'this.emittedInput ' + this.emittedInput)
         let userInputValue = event.target.value
         if (!this.isOnComposition) {
             this.setState({
@@ -20,22 +22,28 @@ class InputField extends Component {
             })
             event.target.value = userInputValue
             this.props.onInputChange(event)
+            this.emittedInput = true
         } else {
             this.setState({
                 tempInput: userInputValue,
             })
+            this.emittedInput = false
         }
     }
 
 
     handleComposition = (event) => {
+        console.log('触发composition event', event.type)
         if (event.type === 'compositionstart') {
             this.isOnComposition = true
+            this.emittedInput = false
         } else if (event.type === 'compositionend') {
             this.isOnComposition = false
             // fixed for Chrome v53+ and detect all Chrome
             // https://chromium.googlesource.com/chromium/src/+/afce9d93e76f2ff81baaa088a4ea25f67d1a76b3%5E%21/
-            if (isChrome) {
+            // also fixed for the native Apple keyboard which emit input event before composition event
+            // subscribe this issue: https://github.com/facebook/react/issues/8683
+            if (!this.emittedInput) {
                 this.handleInputChange(event)
             }
         }

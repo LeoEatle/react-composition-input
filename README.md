@@ -43,6 +43,11 @@ You can see the difference through the gif below.
 
 You can read [this article by Evan You](http://blog.evanyou.me/2014/01/03/composition-event/) to know more about DOM composition event.
 
+# Update
+I find that some IME also behaves differently on composition event. If you use Apple native keyboard on iOS, the onInput event is emmited before the composition event. If you use Google keyboard instead, the composition event will never be emitted. The onInput event will only be emitted when the composition is over(which is a good thing but not a standard thing).
+
+So I change the way to detect the sequence of event firing. To make it more compatiable for most situations.
+
 # Q & A
 ### Why `value` props not work in this input?
 I use inner state to manage the `value` of input. So **Please do not pass value as props to `react-composition-input`**. A warning will show up if you do so.

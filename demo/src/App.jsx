@@ -13,6 +13,7 @@ const testList = [
     "ce'shi'123",
     'ceshi223',
     'ceshi334',
+    '测shi',
     '测试',
     '测试123',
     '测试ceshi',
@@ -23,7 +24,6 @@ const testList = [
 class App extends Component {
     constructor(props, context) {
         super(props, context)
-        console.log('CInput', CInput)
         this.state = {
             userInput: '',
             original: [],
@@ -34,15 +34,12 @@ class App extends Component {
     inputChange = (type) => {
         return (event) => {
             let value = event.target.value
+            console.log('value', value)
             if (value) {
                 this.setState({
                     [type]: testList.filter((item) => {
                         return (item.indexOf(value) !== -1)
                     })
-                })
-            } else {
-                this.setState({
-                    [type]: []
                 })
             }
         }
