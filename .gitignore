@@ -3,3 +3,4 @@ npm-debug.log
 demo/dist
 .cache
 yarn-error.log
+.DS_Store
