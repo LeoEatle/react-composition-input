@@ -10,12 +10,12 @@
 `npm install --save react-composition-input`
 
 ```javascript
-import { CInput } from 'react-composition-input';
+import CInput from 'react-composition-input';
 
 class App extends Component {
   render() {
     return (
-        <CInput onInputChange={this.handleInputChange} />
+      <CInput onInputChange={this.handleInputChange} />
     );
   }
 }

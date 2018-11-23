@@ -13,12 +13,12 @@ The input component optimized for languages like Chinese, Japanese etc.
 `npm install --save react-composition-input`
 
 ```javascript
-import { CInput } from 'react-composition-input';
+import CInput from 'react-composition-input';
 
 class App extends Component {
   render() {
     return (
-        <CInput onInputChange={this.handleInputChange} />
+      <CInput onInputChange={this.handleInputChange} />
     );
   }
 }
@@ -34,7 +34,7 @@ npm start
 # Why
 When we type non-latin languages, e.g. Chinese, we need IME to compose our input until a word selection has been made. However, when we are changing the input field's value during a composition, the `onChange` event emits before the composition is finished. Which is not what we expect. And frequently calling `onChange` function may affect page performance.
 
-According to [DOM3 spec](https://w3c.github.io/uievents/#event-type-compositionstart), composition events can help us avoid emitting `onChange` event before the composition event is finished. We can use a variable to tag the status of composition. By using `react-composition-input`, the `onInputChange` callback will only be called after `compositionend` event is emitted. 
+According to [DOM3 spec](https://w3c.github.io/uievents/#event-type-compositionstart), composition events can help us avoid emitting `onChange` event before the composition event is finished. We can use a variable to tag the status of a composition. By using `react-composition-input`, the `onInputChange` callback will only be called after `compositionend` event is emitted.
 
 You can see the difference through the gif below.
 
@@ -44,12 +44,12 @@ You can see the difference through the gif below.
 You can read [this article by Evan You](http://blog.evanyou.me/2014/01/03/composition-event/) to know more about DOM composition event.
 
 # Update
-I find that some IME also behaves differently on composition event. If you use Apple native keyboard on iOS, the onInput event is emmited before the composition event. If you use Google keyboard instead, the composition event will never be emitted. The onInput event will only be emitted when the composition is over(which is a good thing but not a standard thing).
+I find that some IME also behaves differently on composition event. If you use Apple native keyboard on iOS, the onInput event is emitted before the composition event. If you use Google keyboard instead, the composition event will never be emitted. The onInput event will only be emitted when the composition is over(which is a good thing but not a standard thing).
 
-So I change the way to detect the sequence of event firing. To make it more compatiable for most situations.
+So I change the way to detect the sequence of event firing. To make it more compatible for most situations.
 
 # Q & A
-### Why `value` props not work in this input?
+### Why `value` props does not work in this input?
 I use inner state to manage the `value` of input. So **Please do not pass value as props to `react-composition-input`**. A warning will show up if you do so.
 
 ### Why to detect Chrome and call `onInputChange` after `compositionend` event?
