@@ -1,6 +1,6 @@
 language: node_js 
 
-node_js: 6
+node_js: lts
 
 install:
   - yarn
@@ -11,8 +11,8 @@ script:
 after_script:
   - cd ./static
   - git init
-  - git config user.name "LeoEatle" 
-  - git config user.email "liuyitao811@hotmail.com"
+  - git config user.name "${USER_NAME}"
+  - git config user.email "${USER_EMAIL}"
   - git add .
   - git commit -m "update demo"
   - git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
