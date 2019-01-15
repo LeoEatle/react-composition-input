@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // detect whether it is chrome
-const isChrome = !!window.chrome && !!window.chrome.webstore
+// const isChrome = !!window.chrome && !!window.chrome.webstore
 
 const noop = () => {}
 
@@ -39,7 +39,6 @@ class InputField extends Component {
     }
 
     handleInputChange = (event) => {
-        console.log('触发input事件' + new Date().getTime() + 'this.emittedInput ' + this.emittedInput)
         let userInputValue = event.target.value
         this.setState({
             value: userInputValue
@@ -56,7 +55,6 @@ class InputField extends Component {
 
 
     handleComposition = (event) => {
-        console.log('触发composition event', event.type)
         if (event.type === 'compositionstart') {
             this.isOnComposition = true
             this.emittedInput = false

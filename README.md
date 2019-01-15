@@ -48,9 +48,9 @@ I find that some IME also behaves differently on composition event. If you use A
 
 So I change the way to detect the sequence of event firing. To make it more compatible for most situations.
 
+After `1.1.0`, you can set `value` as props to control the value in `CInput`. Thanks for the [PR from luyilin](https://github.com/LeoEatle/react-composition-input/pull/2).
+
 # Q & A
-### Why `value` props does not work in this input?
-I use inner state to manage the `value` of input. So **Please do not pass value as props to `react-composition-input`**. A warning will show up if you do so.
 
 ### Why to detect Chrome and call `onInputChange` after `compositionend` event?
 After Chrome v53, the `compositionend` event is emitted after `textInput` event. It causes that `compositionend` event emitted but `onInputChange` function is not be called. So we need to call `onInputChange` for another time.

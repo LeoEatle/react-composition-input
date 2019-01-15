@@ -45,9 +45,9 @@ npm start
 
 所以我用了另一种策略来对付这种不兼容问题，在`1.0.4`版本以上iOS的这种情况将被兼容。
 
+`1.1.0`版本之后，我们可以通过设置`value`作为props控制`CInput`的值，感谢[luylin的PR](https://github.com/LeoEatle/react-composition-input/pull/2)！
+
 # Q & A
-### 为什么我传`value`作为props不起作用？
-react-composition-input 用内部的state管理value，所以**请不要传`value`作为props到CInput**，如果这么做的话会显示一个警告。
 
 ### 为什么要检测是否是Chrome并在`compositionend`事件触发后再次调用`onInputChange`?
 Chrome v53之后，`compositionend`事件被改成了在`textInput`事件之后再触发，这造成`compositionend`事件触发了，但是`onInputChange`没有被调用，所以我们针对Chrome需要再一次调用`onInputChange`，在其他的大部分浏览器，`textInput`都是在`compositionend`之后触发的。
