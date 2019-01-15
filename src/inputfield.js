@@ -1,34 +1,57 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
-// detect whether it is chrome 
+// detect whether it is chrome
 const isChrome = !!window.chrome && !!window.chrome.webstore
 
+const noop = () => {}
+
 class InputField extends Component {
+
+    static propTypes = {
+        value: PropTypes.any,
+        defaultValue: PropTypes.any,
+        onChange: PropTypes.func,
+        onInputChange: PropTypes.func
+    }
+
+    static defaultProps = {
+        onChange: noop,
+        onInputChange: noop
+    }
+
     constructor(props, context) {
         super(props, context)
         this.state = {
-            tempInput: this.props.defaultValue || '',
+            value: this.props.value || this.props.defaultValue || ''
         }
         this.isOnComposition = false
         this.emittedInput = true
     }
 
+    componentWillReceiveProps(nextProps) {
+        const { value } = nextProps
+        if (value !== this.props.value) {
+            this.setState({
+                value
+            })
+        }
+    }
+
     handleInputChange = (event) => {
         console.log('触发input事件' + new Date().getTime() + 'this.emittedInput ' + this.emittedInput)
         let userInputValue = event.target.value
+        this.setState({
+            value: userInputValue
+        })
         if (!this.isOnComposition) {
-            this.setState({
-                tempInput: userInputValue
-            })
             event.target.value = userInputValue
             this.props.onInputChange(event)
             this.emittedInput = true
         } else {
-            this.setState({
-                tempInput: userInputValue,
-            })
             this.emittedInput = false
         }
+        this.props.onChange(userInputValue)
     }
 
 
@@ -50,17 +73,17 @@ class InputField extends Component {
     }
 
     render() {
-        const {onInputChange, ...restProps} = this.props
-
+        const { onInputChange, ...restProps } = this.props
         return (
             <input
                 type='text'
+                {...restProps}
                 ref={(input)=>{this.input = input}}
-                value={this.state.tempInput}
+                value={this.state.value}
                 onChange={this.handleInputChange}
                 onCompositionStart={this.handleComposition}
                 onCompositionEnd={this.handleComposition}
-                {...restProps} />
+            />
         )
     }
 }

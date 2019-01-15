@@ -27,14 +27,14 @@ class App extends Component {
         this.state = {
             userInput: '',
             original: [],
-            optimized: []
+            optimized: [],
+            optimizedValue: 123
         }
     }
 
     inputChange = (type) => {
         return (event) => {
             let value = event.target.value
-            console.log('value', value)
             if (value) {
                 this.setState({
                     [type]: testList.filter((item) => {
@@ -53,7 +53,22 @@ class App extends Component {
         </ul>
     }
 
+    onChange = (value) => {
+        this.setState({
+            optimizedValue: value
+        });
+    }
+
+    changeValue = () => {
+        this.setState({
+            optimizedValue: 233
+        })
+    }
+
     render() {
+        const {
+            optimizedValue
+        } = this.state
         return (
             <div className='content'>
                 <header>
@@ -68,11 +83,11 @@ class App extends Component {
                     </div>
                     <div className='part optimized-part'>
                         <h1>Optimized search input</h1>
-                        <CInput onInputChange={this.inputChange('optimized')} />
+                        <CInput value={optimizedValue} onChange={this.onChange} onInputChange={this.inputChange('optimized')} />
+                        <button onClick={this.changeValue}>change Value</button>
                         {this.renderResult('optimized')}
                     </div>
                 </div>
-            
             </div>
         )
     }
